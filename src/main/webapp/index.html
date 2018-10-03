@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<script>
+        var app = angular.module('textoApp', []);
+        app.controller('textoCtrl', function($scope, $http) {
+
+           $scope.varteste = "batata";
+
+           $http.get("textos")
+            .then(
+                function(data){
+                   console.log(data)
+                   $scope.textos = data.data
+                },
+                function(error){ console.log("Erro")
+                    console.log(error)
+                }
+            )
+
+        });
+
+
+    </script>
+
+
+<div ng-app="textoApp" ng-controller="textoCtrl">
+    <h1>Textos</h1>
+
+
+
+    <p ng-repeat="texto in textos | orderBy:'-datahora'">
+        ({{texto.datahora}}) {{texto.texto}}
+    </p>
+
+
+</div>
+</body>
+</html>
