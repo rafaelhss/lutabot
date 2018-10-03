@@ -31,8 +31,9 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.2.5</version>
+            <version>9.4-1206-jdbc42</version>
         </dependency>
+
     </dependencies>
 
     <properties>
